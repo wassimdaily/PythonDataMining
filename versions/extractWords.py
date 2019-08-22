@@ -10,6 +10,7 @@ def main(fileName, commandRegex):
 
 	with open(fileName, 'w') as wFile:
 		wFile.writelines('\n'.join(dataSet))
+		print("found: " + dataSet)
 
 def extract():
 	main('output/mountain.txt', r'\bmountains?\b | \bwaterfall\b')
