@@ -1,10 +1,13 @@
-filepath = 'input.txt'
-with open(filepath) as fp:
-   line = fp.readline()
-   cnt = 1
-   while line:
+import re as tool
 
-      # print("Line {}: {}".format(cnt, line.strip()))
-      
-       line = fp.readline()
-       cnt += 1
+def extract():
+	with open('../story.txt') as opFile:
+		for x in enumerate(opFile):
+			if x[0]< 5:
+				writeOn = open('out.txt', "w")
+				c = tool.compile(r'([^.]*Life[^.]* | [^.]*lesson[^.]*)', flags=tool.I | tool.X)
+				result = '\n'.join(c.findall(x[1]))
+				writeOn.write(result)
+				print(result)
+
+extract()
